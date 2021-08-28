@@ -3,7 +3,7 @@ name: CI
 on:
   push:
     tags:
-    - 'v*'
+      - "v*"
 
 jobs:
   Build_and_publish:
@@ -11,14 +11,9 @@ jobs:
     steps:
       - name: Check out repository code
         uses: actions/checkout@v2
-      - run: |
+      - name: Build ssh-url-handler
+        run: |
           go build
-      - uses: actions/upload-artifact@v2
-        with:
-          name: ssh-url-handler
-          path: |
-            ssh-url-handler
-
       - name: release
         uses: actions/create-release@v1
         id: create_release
