@@ -1,5 +1,10 @@
 name: CI
-on: [push]
+
+on:
+  push:
+    tags:
+    - 'v*'
+
 jobs:
   Build_and_publish:
     runs-on: ubuntu-latest
@@ -10,6 +15,16 @@ jobs:
           go build
       - uses: actions/upload-artifact@v2
         with:
-          name: my-artifact
+          name: ssh-url-handler
           path: |
             ssh-url-handler
+
+      - name: release
+        uses: actions/create-release@v1
+        id: create_release
+        with:
+          release_name: Release ${{ github.ref }}
+          tag_name: ${{ github.ref }}
+          artifacts: "ssh-url-handler"
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
