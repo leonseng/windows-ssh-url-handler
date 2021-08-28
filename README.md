@@ -1,4 +1,4 @@
-# SSH URL Handler For Windows Subsystem For Linux
+# SSH URL Handler for Windows
 
 Allows Windows to launch SSH sessions from SSH URLs (e.g.: `ssh://user:password@example.com:123`) via [Windows Subsystem for Linux](https://docs.microsoft.com/en-us/windows/wsl/about) (WSL).
 
