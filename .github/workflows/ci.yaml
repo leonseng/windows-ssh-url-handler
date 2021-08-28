@@ -17,5 +17,5 @@ jobs:
       - name: Create release with ssh-url-handler binary
         uses: ncipollo/release-action@v1
         with:
-          artifacts: "ssh-url-handler"
+          artifacts: "ssh-url-handler,ssh.reg"
           token: ${{ github.token }}
