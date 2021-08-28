@@ -8,7 +8,6 @@ Launching SSH sessions through WSL in [Windows Terminal](https://github.com/micr
 
 Build the `ssh-url-handler` binary in WSL using [Go](https://golang.org/)
 ```
-go mod init ssh-url-handler
 go build
 sudo mv ssh-url-handler /usr/local/bin
 ```
