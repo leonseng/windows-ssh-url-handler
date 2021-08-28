@@ -4,7 +4,7 @@ Allows Windows to launch SSH sessions from SSH URLs (e.g.: `ssh://user:password@
 
 Launching SSH sessions through WSL in [Windows Terminal](https://github.com/microsoft/terminal) is also supported.
 
-## Instructions
+## Installation
 
 **On WSL:**
 
