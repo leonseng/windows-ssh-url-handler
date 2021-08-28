@@ -14,13 +14,7 @@ jobs:
       - name: Build ssh-url-handler
         run: |
           go build
-      # - name: Create artifact
-      #   uses: actions/upload-artifact@v2
-      #   with:
-      #     name: ssh-url-handler
-      #     path: |
-      #       ssh-url-handler
-      - name: release
+      - name: Create release with ssh-url-handler binary
         uses: ncipollo/release-action@v1
         with:
           artifacts: "ssh-url-handler"
