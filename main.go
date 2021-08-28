@@ -2,32 +2,34 @@ package main
 
 import (
 	"fmt"
+	"net/url"
 	"os"
-	"regexp"
 	"strings"
 )
 
 func main() {
-	ssh_url := os.Args[1]
-	target := ssh_url[6:] // strip ssh:// prefix
+	input_ssh_url := os.Args[1]
 
-	host := target
-	port := "22"
-	port_match := regexp.MustCompile(`:\d+$`)
-
-	// port provided in URL
-	if port_match.MatchString(target) {
-		url_match := regexp.MustCompile(`^(?P<host>.+?):(?P<port>\d+)$`)
-		match := url_match.FindStringSubmatch(target)
-		result := make(map[string]string)
-		for i, name := range url_match.SubexpNames() {
-			if i != 0 && name != "" {
-				result[name] = match[i]
-			}
-		}
-		host = result["host"]
-		port = result["port"]
+	ssh_url, err := url.Parse(input_ssh_url)
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Invalid URL: %s\n", input_ssh_url)
+		os.Exit(1)
 	}
 
-	fmt.Printf("ssh -p %s %s", port, strings.TrimRight(host, "/"))
+	if strings.ToLower(ssh_url.Scheme) != "ssh" {
+		fmt.Fprintf(os.Stderr, "Invalid SSH URL: %s\n", input_ssh_url)
+		os.Exit(1)
+	}
+
+	host := ssh_url.Hostname()
+	if ssh_url.User.String() != "" {
+		host = fmt.Sprintf("%s@%s", ssh_url.User.String(), host)
+	}
+
+	port := "22"
+	if ssh_url.Port() != "" {
+		port = ssh_url.Port()
+	}
+
+	fmt.Printf("ssh -p %s %s", port, host)
 }
