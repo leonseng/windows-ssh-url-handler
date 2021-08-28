@@ -8,17 +8,18 @@ Launching SSH sessions through WSL in [Windows Terminal](https://github.com/micr
 
 **On WSL:**
 
-1. Download the `ssh-url-handler` binary from [Releases](https://github.com/leonseng/windows-ssh-url-handler/releases) page.
+1. Download the `ssh-url-handler` binary from [Releases](https://github.com/leonseng/windows-ssh-url-handler/releases) page
+
 1. Move the `ssh-url-handler` binary into `/usr/local/bin`
 
 **On Windows:**
 
-1. Download the `ssh.reg` file from [Releases](https://github.com/leonseng/windows-ssh-url-handler/releases) page.
+1. Download the `ssh.reg` file from [Releases](https://github.com/leonseng/windows-ssh-url-handler/releases) page
 1. If you use WSL through [Windows Terminal](https://github.com/microsoft/terminal), update the value for `[HKEY_CLASSES_ROOT\ssh\shell\open\command]` in `ssh.reg` to
 
     `@="wt wsl $(ssh-url-handler %1)"`
 
-1. Double click on [ssh.reg](./ssh.reg) to install the registry entries which create an association for SSH URLs.
+1. Double click on [ssh.reg](./ssh.reg) to install the registry entries which create an association for SSH URLs
 
 You should now be able to click on SSH URLs and have an SSH session launched within WSL.
 
