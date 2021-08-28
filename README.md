@@ -2,7 +2,7 @@
 
 Allows Windows to launch SSH sessions from SSH URLs (e.g.: `ssh://user:password@example.com:123`) via [Windows Subsystem for Linux](https://docs.microsoft.com/en-us/windows/wsl/about) (WSL).
 
-Launching SSH sessions through WSL in [Windows Terminal](https://github.com/microsoft/terminal) is also supported.
+Launching SSH sessions in WSL through [Windows Terminal](https://github.com/microsoft/terminal) is also supported.
 
 ## Installation
 
