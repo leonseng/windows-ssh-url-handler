@@ -9,4 +9,4 @@ Windows Registry Editor Version 5.00
 [HKEY_CLASSES_ROOT\ssh\shell\open]
 
 [HKEY_CLASSES_ROOT\ssh\shell\open\command]
-@="wsl $(ssh-url-handler %1)"
+@="wt --window 0 new-tab wsl sh -c \"$(ssh-url-handler %1)\" || exec $SHELL"
