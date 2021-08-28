@@ -1,0 +1,15 @@
+name: CI
+on: [push]
+jobs:
+  Build_and_publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v2
+      - run: |
+          go build
+      - uses: actions/upload-artifact@v2
+        with:
+          name: my-artifact
+          path: |
+            ssh-url-handler
