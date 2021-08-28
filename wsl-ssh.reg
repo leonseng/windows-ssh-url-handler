@@ -1,0 +1,12 @@
+Windows Registry Editor Version 5.00
+
+[HKEY_CLASSES_ROOT\ssh]
+@="URL: ssh Protocol"
+"URL Protocol"="ssh://"
+
+[HKEY_CLASSES_ROOT\ssh\shell]
+
+[HKEY_CLASSES_ROOT\ssh\shell\open]
+
+[HKEY_CLASSES_ROOT\ssh\shell\open\command]
+@="wsl $(ssh-url-handler %1) || exec $SHELL"
