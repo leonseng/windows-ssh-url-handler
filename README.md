@@ -12,7 +12,7 @@ Launching SSH sessions through WSL in [Windows Terminal](https://github.com/micr
 
 1. Move the `ssh-url-handler` binary into `/usr/local/bin`.
 
-1. Run `chmod x /usr/local/bin/ssh-url-handler` to make it executable.
+1. Run `chmod +x /usr/local/bin/ssh-url-handler` to make it executable.
 
 **On Windows:**
 
