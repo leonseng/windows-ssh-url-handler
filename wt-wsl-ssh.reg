@@ -9,4 +9,6 @@ Windows Registry Editor Version 5.00
 [HKEY_CLASSES_ROOT\ssh\shell\open]
 
 [HKEY_CLASSES_ROOT\ssh\shell\open\command]
-@="wt --window 0 new-tab wsl echo $(ssh-url-handler %1) && $(ssh-url-handler %1) || exec $SHELL"
+; Below command launches a new tab using the Ubuntu profile in the current Windows Terminal window,
+; and executes the command wsl...
+@="wt --window 0 new-tab --profile Ubuntu wsl echo $(ssh-url-handler %1) && $(ssh-url-handler %1) || exec $SHELL"
